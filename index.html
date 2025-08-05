@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión CNQ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión CNQ</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+            <p class="error-message" id="errorMsg"></p>
+        </form>
+    </div>
+
+    <script>
+        // Aquí defines tus usuarios y contraseñas
+        const users = {
+            "7408074": "carlos25",
+            "Nancy Martínez": "nancy25",
+            "Alumno 2": "alumno"
+        };
+
+        const redirectURL = "https://www.facebook.com/people/Colegio-Nacional-de-Quiindy-1967-Paraguay-Cuenta-Oficial/100063564883962/#"; // Cámbiala por tu página
+
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMsg = document.getElementById("errorMsg");
+
+            if (users[username] && users[username] === password) {
+                window.location.href = redirectURL;
+            } else {
+                errorMsg.textContent = "Usuario o contraseña incorrectos.";
+            }
+        });
+    </script>
+</body>
+</html>
+<link rel="stylesheet" href="styles.css">
